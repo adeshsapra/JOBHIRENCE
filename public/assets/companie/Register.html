@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Profile Creation</title>
+  <style>
+    /* Root Variables */
+    :root {
+      --primary-color: #021526;
+      --secondary-color: #6EACDA;
+      --accent-color: #E2E2B6;
+      --button-color: #03346E;
+      --background-color-light: #f7f9fc;
+      --background-color-dark: #f9f9f9;
+      --text-color: #333;
+      --text-color-light: #555;
+      --hover-color: #6EACDA;
+    }
+
+    /* Global Styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--background-color-light);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: var(--text-color);
+      overflow: hidden;
+    }
+
+    .form-container {
+      background: var(--background-color-dark);
+      padding: 40px 70px 40px 40px;
+      width: 450px;
+      border-radius: 12px;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 30px;
+      text-align: center;
+      color: var(--primary-color);
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 15px;
+      text-align: center;
+      margin-bottom: 25px;
+      color: var(--text-color-light);
+      opacity: 0.8;
+    }
+
+    /* Form Group */
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    label {
+      font-size: 14px;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+      display: block;
+      font-weight: 500;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"] {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      background-color: var(--background-color-light);
+      color: var(--text-color);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus,
+    input[type="tel"]:focus {
+      border: 1px solid var(--secondary-color);
+      background-color: var(--background-color-dark);
+      box-shadow: 0 4px 20px rgba(0, 119, 204, 0.2);
+    }
+
+    /* Form Actions */
+    .form-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-color-light);
+      margin-top: 10px;
+    }
+
+    .form-actions input[type="checkbox"] {
+      margin: 0;
+      accent-color: var(--secondary-color);
+    }
+
+    /* Button Styles */
+    .register-btn {
+      width: 100%;
+      padding: 15px;
+      background: var(--button-color);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 25px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .register-btn:hover {
+      background-color: var(--hover-color);
+      transform: translateY(-2px);
+    }
+
+    .register-btn:active {
+      background-color: var(--secondary-color);
+      transform: translateY(2px);
+    }
+
+    /* Footer Text */
+    .footer-text {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 12px;
+      color: var(--text-color-light);
+    }
+
+    .footer-text a {
+      color: var(--secondary-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-text a:hover {
+      color: #fff;
+    }
+
+    /* Responsive Design */
+    @media screen and (max-width: 500px) {
+      .form-container {
+        width: 85%;
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Transform Your Career Today</h2>
+    <p>Your dream job is waiting. Start your journey today.</p>
+    <form>
+      <div class="form-group">
+        <label for="fullname">Full Name <span style="color: red;">*</span></label>
+        <input type="text" id="fullname" placeholder="Enter your full name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email ID <span style="color: red;">*</span></label>
+        <input type="email" id="email" placeholder="Your email address" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password <span style="color: red;">*</span></label>
+        <input type="password" id="password" placeholder="Minimum 6 characters" minlength="6" required>
+      </div>
+      <div class="form-group">
+        <label for="mobile">Mobile Number <span style="color: red;">*</span></label>
+        <input type="tel" id="mobile" placeholder="Enter your mobile number" required>
+      </div>
+      <div class="form-actions">
+        <input type="checkbox" id="updates">
+        <label for="updates">Send me updates via email, SMS, and WhatsApp</label>
+      </div>
+      <button type="submit" class="register-btn">Register Now</button>
+    </form>
+    <div class="footer-text">
+      By clicking Register, you agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a> of jobhierance.com.
+    </div>
+  </div>
+</body>
+</html>

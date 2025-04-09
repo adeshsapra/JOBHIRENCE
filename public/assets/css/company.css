@@ -1,0 +1,4162 @@
+
+/* @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap'); */
+
+/* Define root variables for colors */
+:root {
+    --primary-color: #021526;
+    --secondary-color: #6EACDA;
+    --accent-color: #E2E2B6;
+    --button-color: #03346E;
+    --background-color-light: #f7f9fc;
+    --background-color-dark: #f9f9f9;
+    --text-color: #333;
+    --text-color-light: #555;
+    --hover-color: #6EACDA;
+
+    --company-login-primary-gradient: linear-gradient(135deg, #021526, #03346E);
+    --company-login-secondary-gradient: linear-gradient(135deg, #03346E, #6EACDA);
+    --company-login-border-radius-sm: 8px;
+    --company-login-border-radius-md: 12px;
+    --company-login-border-radius-lg: 20px;
+    --company-login-border-radius-xl: 30px;
+    --company-login-border-radius-full: 9999px;
+    --company-login-shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --company-login-shadow-md: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --company-login-shadow-lg: 0 20px 25px rgba(0, 0, 0, 0.15);
+    --company-login-shadow-glow: 0 0 15px rgba(110, 172, 218, 0.5);
+
+
+    --primary-gradient: linear-gradient(135deg, #021526, #03346E);
+    --secondary-gradient: linear-gradient(135deg, #03346E, #6EACDA);
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 20px;
+    --border-radius-full: 9999px;
+    --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 20px 25px rgba(0, 0, 0, 0.15);
+    --shadow-glow: 0 0 15px rgba(110, 172, 218, 0.5);
+}
+.input-wrapper input.is-invalid,
+.input-wrapper select.is-invalid,
+.input-wrapper textarea.is-invalid,
+.password-wrapper input.is-invalid {
+    border-color: red;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    text-align: left
+}
+/* Reset default margin and padding */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* font-family: "DM Serif Display", serif; */
+/* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+/* font-family: 'Roboto', sans-serif; */
+background-color: var(--background-color-light);
+color: var(--text-color);
+line-height: 1.6;
+}
+
+    /* Sidebar Style */
+    .company-profile-sidebar {
+        width: 260px;
+        height: 100vh;
+        /* background: linear-gradient(180deg, var(--primary-color) 0%, var(--button-color) 100%); */
+        background-color: var(--primary-color);
+        color: var(--accent-color);
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        padding: 20px 10px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .company-profile-sidebar h2 {
+        text-align: center;
+        margin: 0;
+        font-weight: 700;
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+
+    .company-profile-sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .company-profile-sidebar ul li {
+        margin: 15px 0;
+    }
+
+    .company-profile-sidebar ul li a {
+        text-decoration: none;
+        color: var(--accent-color);
+        padding: 12px 20px;
+        display: block;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: 700;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .company-profile-sidebar ul li a:hover {
+        background-color: var(--accent-color);
+        color: var(--primary-color);
+    }
+
+
+
+/* ========================================================== company dashboard page ============================================================== */
+.company-panel-content {
+    padding: 2rem;
+    margin-left: 250px;
+    background-color: var(--bg-light);
+    min-height: 100vh;
+}
+
+.dashboard-header {
+    background: var(--primary-color);
+    border-radius: 15px;
+    padding: 2rem;
+    color: white;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard-header-left h1 {
+    font-size: 2.2rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.dashboard-header-left p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.dashboard-header-right {
+    text-align: right;
+}
+
+.dashboard-date {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.quick-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    background: rgba(52, 152, 219, 0.1);
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+}
+
+.stat-info h3 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: var(--text-dark);
+}
+
+.stat-info p {
+    margin: 0;
+    color: var(--text-light);
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.dashboard-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.dashboard-card-header h2 {
+    margin: 0;
+    color: var(--text-dark);
+    font-size: 1.4rem;
+}
+
+.dashboard-card-header .view-all {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.job-list, .application-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.job-item, .application-item {
+    padding: 1rem;
+    border-radius: 8px;
+    background: var(--bg-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.status-badge {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.status-active {
+    background: rgba(46, 204, 113, 0.1);
+    color: var(--success-color);
+}
+
+.status-pending {
+    background: rgba(241, 196, 15, 0.1);
+    color: var(--warning-color);
+}
+
+.status-closed {
+    background: rgba(231, 76, 60, 0.1);
+    color: var(--accent-color);
+}
+
+.activity-list {
+    gap: 1rem;
+}
+
+.activity-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 0.8rem;
+    border-bottom: 1px solid #eee;
+}
+
+.activity-icon {
+    background: rgba(52, 152, 219, 0.1);
+    color: var(--secondary-color);
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1.2rem;
+}
+
+.activity-content h4 {
+    margin: 0;
+    color: var(--text-dark);
+}
+
+.activity-content p {
+    margin: 0.3rem 0 0 0;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+
+    
+/* ========================================================== company jobsss page ============================================================== */
+
+/* Panel Content */
+.company-jobs-panel-content {
+padding: 30px 20px 30px 0;
+margin-left: 280px;
+border-radius: 12px;
+max-width: 1400px;
+transition: all 0.3s ease-in-out;
+}
+
+/* Header Section */
+.company-jobs-panel-header {
+margin-bottom: 20px;
+text-align: center;
+background-color: var(--primary-color);
+padding: 20px;
+border-radius: 12px;
+border: 1px solid var(--accent-color);
+box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.company-jobs-panel-header h1 {
+font-size: 28px;
+color: var(--accent-color);
+margin: 0;
+font-weight: bold;
+}
+
+.company-jobs-panel-header p {
+font-size: 16px;
+font-weight: 600;
+color: var(--accent-color);
+margin-top: 10px;
+}
+
+/* listing section  */
+
+.company-job-list-container {
+max-width: 1400px;
+padding: 25px;
+background: linear-gradient(135deg, var(--background-color-dark), var(--background-color-light));
+border-radius: 25px;
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+animation: fadeIn 1s ease-out;
+}
+
+
+.company-job-list-header {
+display: flex; 
+justify-content: space-between; 
+align-items: center; 
+padding: 20px; 
+}
+
+/* Header */
+.company-job-list-header h1 {
+font-size: 28px;
+margin: 0 0 20px 0;
+color: var(--primary-color);
+font-size: 30px;
+font-weight: 800;
+text-align: left;
+margin-bottom: 20px;
+/* letter-spacing: 1px; */
+position: relative;
+
+}
+/* Table */
+.company-job-list-table {
+width: 100%;
+border-collapse: separate;
+border-spacing: 0 10px;
+}
+
+.company-job-list-header-cell {
+background: var(--primary-color);
+color: var(--accent-color);
+font-weight: 700;
+padding: 15px;
+text-align: left;
+border-bottom: 2px solid #ddd;
+}
+
+.company-job-list-row {
+background: #fff;
+border-radius: 10px;
+overflow: hidden;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.company-job-list-row:hover {
+background-color: var(--background-color-dark);
+box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.company-job-list-cell {
+padding: 15px;
+color: var(--primary-color);
+font-size: 15px;
+}
+
+/* Status */
+.company-job-list-status {
+font-weight: bold;
+}
+
+.company-job-list-status.active {
+color: #28a745;
+}
+
+.company-job-list-status.closed {
+color: #dc3545;
+}
+
+/* Actions */
+.company-job-list-actions {
+position: relative;
+display: inline-block;
+}
+
+.company-job-list-action-button {
+background: none;
+border: none;
+color: var(--text-color-light);
+cursor: pointer;
+font-size: 16px;
+transition: color 0.3s;
+}
+
+.company-job-list-action-button:hover {
+color: var(--text-color);
+}
+
+.company-job-list-dropdown {
+display: none;
+position: absolute;
+right: 0;
+background: #fff;
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+border-radius: 10px;
+z-index: 10;
+overflow: hidden;
+}
+
+.company-job-list-dropdown a {
+display: flex;
+align-items: center;
+padding: 12px 20px;
+text-decoration: none;
+color: var(--text-color-light);
+font-size: 14px;
+}
+.company-job-list-dropdown .company-jobs-reopen,
+.company-jobs-delete{
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    background: #fff;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 14px;
+    border: none;
+    gap: 5px;
+}
+
+.company-job-list-dropdown a i {
+margin-right: 8px;
+font-size: 16px;
+color: var(--text-color);
+}
+
+.company-job-list-dropdown a:hover,
+.company-jobs-reopen:hover,
+.company-jobs-delete:hover {
+background-color: var(--background-color-light);
+}
+
+/* Show Dropdown on Hover */
+.company-job-list-actions:hover .company-job-list-dropdown {
+display: block;
+}
+
+/* Button style */
+.company-add-post-job-button {
+background-color: var(--secondary-color); 
+color: white;
+font-size: 16px;
+border-radius: 5px;
+padding: 15px 30px; 
+font-weight: 600;
+border: none; 
+cursor: pointer;
+transition: 0.3s ease-in-out;
+margin-top: -17px;
+}
+
+/* Hover effect */
+.company-add-post-job-button:hover {
+background-color: var(--button-color); 
+color: var(--accent-color);
+}
+
+/* Focused button (optional) */
+.company-add-post-job-button:focus {
+outline: none; /* Remove default outline */
+box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a blue glow on focus */
+}
+
+/* New Job Section --------------------------------------------------------------*/
+/* Main Container Styling *//* Main Container Styling */
+.company-jobs-new-section {
+padding: 40px;
+background-color: var(--background-color-light);
+border-radius: 20px;
+margin-top: 2rem;
+max-width: 1400px;
+margin-left: auto;
+margin-right: auto;
+position: relative;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styling */
+.company-jobs-new-section h2 {
+font-size: 32px;
+color: var(--primary-color);
+font-weight: 900;
+text-align: center;
+margin-bottom: 30px;
+text-transform: uppercase;
+}
+
+
+/* Form Styling */
+.company-jobs-new-form {
+display: grid;
+gap: 35px;
+}
+
+/* Form Section Header Styling */
+.company-jobs-new-form h3 {
+font-size: 24px;
+color: var(--primary-color);
+font-weight: 700;
+text-transform: uppercase;
+margin-bottom: 15px;
+border-bottom: 2px solid var(--secondary-color);
+padding-bottom: 10px;
+}
+
+/* Label Styling */
+.company-jobs-new-form label {
+font-size: 16px;
+color: var(--text-color);
+font-weight: 600;
+margin-bottom: 10px;
+}
+
+/* Input, Textarea, and Select Styling */
+.company-jobs-new-form input,
+.company-jobs-new-form textarea,
+.company-jobs-new-form select {
+width: 100%;
+padding: 14px;
+border: 1px solid #ddd;
+border-radius: 8px;
+background-color: var(--background-color-dark);
+font-size: 15px;
+color: var(--text-color);
+transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Focus States */
+.company-jobs-new-form input:focus,
+.company-jobs-new-form textarea:focus,
+.company-jobs-new-form select:focus {
+border-color: var(--secondary-color);
+box-shadow: 0 0 8px rgba(110, 172, 218, 0.3);
+outline: none;
+}
+
+/* Two-Column Layout for Fields */
+.company-jobs-new-form .form-row-two-columns {
+display: grid;
+gap: 20px;
+grid-template-columns: 1fr 1fr;
+}
+
+/* Button Styling */
+.company-jobs-new-form button {
+background-color: var(--button-color);
+color: white;
+border: none;
+border-radius: 25px;
+padding: 15px 50px;
+font-size: 16px;
+font-weight: 700;
+cursor: pointer;
+transition: background-color 0.3s ease, transform 0.2s ease;
+display: block;
+margin: 0 auto;
+max-width: 250px;
+}
+
+/* Button Hover Effect */
+.company-jobs-new-form button:hover {
+background-color: var(--hover-color);
+transform: scale(1.05);
+}
+
+/* Button Active Effect */
+.company-jobs-new-form button:active {
+transform: scale(0.98);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+.company-jobs-new-form .form-row-two-columns {
+    grid-template-columns: 1fr; 
+}
+
+.company-jobs-new-form button {
+    max-width: 100%;
+}
+}
+
+
+
+
+
+.company-applications-container {
+max-width: 1400px;
+margin: 20px;
+margin-left: 280px;
+padding: 25px;
+background: var(--background-color-dark);
+border-radius: 12px;
+box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+/* border: 1px solid var(--accent-color); */
+position: relative;
+overflow: visible;
+z-index: 1;
+margin-bottom: 60px;
+animation: fadeIn 1s ease-out;
+}
+
+.company-panel-menu-header {
+background-color: var(--primary-color);
+padding: 20px;
+border-radius: 8px; 
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+text-align: center;
+max-width: 1400px;
+margin: 2rem 1rem 0 280px;
+}
+
+.company-panel-menu-heading {
+font-size: 28px; 
+font-weight: bold; 
+color: var(--accent-color);
+margin-bottom: 10px; 
+}
+
+.company-panel-menu-description {
+font-size: 16px; 
+font-weight: 600;
+color: var(--accent-color);
+line-height: 1.5;
+}
+
+
+.company-applications-title {
+font-size: 24px;
+font-weight: 700;
+text-align: center;
+color: var(--primary-color);
+margin-bottom: 40px;
+}
+
+.company-applications-filter-bar {
+display: flex;
+gap: 15px;
+margin-bottom: 30px;
+justify-content: center;
+align-items: baseline;
+}
+
+.company-applications-filter-bar label {
+font-size: 16px;
+font-weight: 700;
+color: var(--primary-color);
+margin-right: 5px;
+}
+
+.company-applications-filter-bar select {
+padding: 8px;
+border-radius: 6px;
+border: 1px solid var(--accent-color);
+background: #fff;
+font-size: 14px;
+color: var(--text-color);
+transition: border-color 0.3s;
+}
+
+.company-applications-filter-bar select:hover,
+.company-applications-filter-bar select:focus {
+border-color: var(--hover-color);
+}
+
+.company-applications-filter-bar button {
+padding: 10px 20px;
+background-color: var(--secondary-color);
+color: var(--background-color-light);
+border: none;
+border-radius: 6px;
+font-size: 14px;
+font-weight: 600;
+cursor: pointer;
+transition: background-color 0.3s;
+}
+
+.company-applications-filter-bar button:hover {
+background-color: var(--button-color);
+}
+
+.company-applications-table {
+width: 100%;
+border-collapse: collapse;
+margin-top: 20px;
+background: #fff;
+border-radius: 8px;
+/* overflow: hidden;*/
+box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.company-applications-table th,
+.company-applications-table td {
+text-align: left;
+padding: 20px;
+border-bottom: 1px solid var(--background-color-dark);
+color: var(--text-color);
+}
+.company-applications-table th {
+background: var(--primary-color);
+color: #fff;
+font-weight: 700;
+}
+.company-jobs-status-active {
+    color: white;
+    background-color: #4CAF50;
+}
+
+.company-jobs-status-closed {
+    background-color: #d72a1e;
+    color: white;
+}
+.company-applications-table tr:nth-child(even) {
+background: var(--background-color-light);
+}
+
+.company-applications-status-pill {
+padding: 6px 12px;
+border-radius: 12px;
+font-size: 12px;
+font-weight: 600;
+color: #fff;
+text-align: center;
+display: inline-block;
+}
+
+.company-applications-status-pending {
+background: var(--secondary-color);
+}
+
+.company-applications-status-accepted {
+background: var(--button-color);
+}
+
+.company-applications-status-rejected {
+background: var(--primary-color);
+}
+.company-applications-action-menu {
+    position: relative;
+    display: flex;
+    gap: 20px;
+    /* display: inline-block; */
+}
+
+/* Action Buttons */
+.company-applications-action-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #f8f9fa;
+    color: #333;
+    padding: 8px 12px;
+    margin: 5px 2px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.company-applications-action-button i {
+    font-size: 16px;
+}
+
+.company-applications-action-menu form {
+    display: inline-block;
+}
+
+/* View button */
+.company-applications-action-menu a.company-applications-action-button {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Pending button */
+.company-applications-action-menu form:nth-of-type(1) .company-applications-action-button {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 11px;
+}
+
+/* Accept button */
+.company-applications-action-menu form:nth-of-type(2) .company-applications-action-button {
+    background-color: #28a745;
+    color: white;
+    padding: 11px;
+
+}
+
+/* Reject button */
+.company-applications-action-menu form:nth-of-type(3) .company-applications-action-button {
+    background-color: #dc3545;
+    color: white;
+    padding: 11px;
+
+}
+
+.company-applications-action-button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+.status-pill {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 16px;
+    display: inline-block;
+    text-align: center;
+    min-width: 100px;
+ }
+ 
+ .status-pending {
+    /* background-color: #f0ad4e; */
+    color: var(--secondary-color);
+ }
+ 
+ .status-accepted {
+    /* background-color: #28a745; */
+    color: #28a745;
+ }
+ 
+ .status-rejected {
+    /* background-color: #dc3545;  */
+    color: #dc3545;
+ }
+
+/* .company-applications-action-menu {
+position: relative;
+display: inline-block;
+}
+
+.company-applications-action-button {
+background: none;
+border: none;
+font-size: 16px;
+cursor: pointer;
+color: var(--text-color-light);
+transition: color 0.3s;
+}
+
+.company-applications-action-button:hover {
+color: var(--hover-color);
+}
+
+.company-applications-dropdown-menu {
+display: none;
+position: absolute;
+top: 100%;
+width: 7rem;
+right: 0;
+background: #fff;
+box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
+z-index: 9999;
+border: 1px solid var(--accent-color);
+}
+
+.company-applications-dropdown-menu a {
+display: block;
+padding: 12px 20px;            font-size: 14px;
+align-items: center;
+color: var(--text-color);
+text-decoration: none;
+transition: background 0.3s, color 0.3s;
+}
+
+.company-applications-dropdown-menu a:hover {
+background: var(--hover-color);
+color: #fff;
+}
+
+.company-applications-action-menu:hover .company-applications-dropdown-menu {
+display: block;
+} */
+
+
+.company-jobs-table {
+width: 100%;
+border-collapse: collapse;
+margin-top: 20px;
+background: #fff;
+border-radius: 8px;
+box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.company-jobs-table th,
+.company-jobs-table td {
+text-align: center;
+padding: 14px;
+border-bottom: 1px solid var(--background-color-dark);
+color: var(--text-color);
+}
+
+.company-jobs-table th {
+background: var(--primary-color);
+color: #fff;
+font-weight: 700;
+}
+
+.company-jobs-table tr:nth-child(even) {
+background: var(--background-color-light);
+}
+
+.company-jobs-status-pill {
+padding: 6px 15px;
+border-radius: 12px;
+font-size: 12px;
+font-weight: 600;
+text-align: center;
+display: inline-block;
+}
+
+.company-jobs-action-menu {
+position: relative;
+/* display: inline-block; */
+
+}
+
+.company-jobs-action-button {
+background: none;
+border: none;
+text-decoration: none;
+font-size: 16px;
+padding: 12px 20px;
+background-color: var(--secondary-color);
+cursor: pointer;
+border-radius: 5px;
+font-weight: 700;
+color: var(--background-color-light);
+transition: 0.3s ease-in-out;
+}
+
+.company-jobs-action-button:hover {
+color: var(--accent-color);
+background-color: var(--primary-color);
+}
+
+.company-jobs-dropdown-menu {
+display: none;
+position: absolute;
+top: 100%;
+width: 7rem;
+right: 0;
+background: #fff;
+box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
+z-index: 9999;
+border: 1px solid var(--accent-color);
+}
+
+.company-jobs-dropdown-menu a {
+display: block;
+padding: 12px 20px;
+font-size: 14px;
+align-items: center;
+color: var(--text-color);
+text-decoration: none;
+transition: background 0.3s, color 0.3s;
+}
+
+.company-jobs-dropdown-menu a:hover {
+background: var(--hover-color);
+color: #fff;
+}
+
+.company-jobs-action-menu:hover .company-jobs-dropdown-menu {
+display: block;
+}
+
+
+
+
+/* company edit profile page .............................................................................................................. */
+
+
+/* Container */
+.edit-company-profile-container {
+    /* width: 100%; */
+    max-width: 1400px;
+    background: var(--background-color-light);
+    padding: 30px;
+    /* border-radius: 15px; */
+    margin: 1rem 0 0 16rem;
+    /* box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.1), -10px -10px 25px rgba(255, 255, 255, 0.7); */
+}
+.edit-company-profile-header {
+    text-align: center;
+    padding: 20px;
+    background: var(--primary-color);
+    border-radius: 12px;
+    /* box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1),  
+                inset -5px -5px 10px rgba(255, 255, 255, 0.7);*/
+    margin-bottom: 25px;
+}
+
+.edit-company-profile-header h1 {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Ensure Profile & Cover Sections Are in a Row */
+.edit-company-profile-images-section {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap; /* Ensures responsiveness */
+}
+
+/* Ensure Each Section Takes Equal Space */
+.edit-company-profile-photo-section {
+    flex: 1;
+    max-width: 50%; /* Prevents sections from getting too wide */
+    background: var(--background-color-light);
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: inset 6px 6px 10px rgba(0, 0, 0, 0.1), inset -6px -6px 10px rgba(255, 255, 255, 0.7);
+}
+
+/* Ensure Images & Inputs Are Centered */
+.edit-company-profile-picture,
+.edit-company-profile-cover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edit-company-profile-cover-img {
+    border: 4px solid var(--hover-color);
+    object-fit: cover;
+    margin-bottom: 10px;
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.1), -6px -6px 12px rgba(255, 255, 255, 0.7);
+    width: 400px;
+    height: 200px;
+    margin-top: 2rem;
+  }
+
+  .edit-company-image-update-btn {
+    width: 50%; 
+    background: var(--button-color);
+    color: white;
+    padding: 12px 18px; 
+    border: none;
+    border-radius: 6px; 
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2), -4px -4px 10px rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    margin-top: 20px; 
+    text-align: center; 
+    display: inline-block; 
+}
+
+/* Hover effect */
+.edit-company-image-update-btn:hover {
+    background: var(--hover-color);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3), -3px -3px 10px rgba(255, 255, 255, 0.3);
+}
+
+
+/* Sections */
+.edit-company-profile-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: var(--background-color-light);
+    border-radius: 10px;
+    box-shadow: inset 6px 6px 10px rgba(0, 0, 0, 0.1), inset -6px -6px 10px rgba(255, 255, 255, 0.7);
+}
+.edit-company-profile-section h2{
+    font-size: 24px;
+}
+.edit-company-profile-section label{
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: var(--text-color-light);
+}
+/* Labels */
+.company-profile-info-card label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-color-light);
+}
+
+/* Inputs */
+.edit-company-profile-input,
+.edit-company-profile-textarea,
+.edit-company-profile-select {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background: var(--background-color-dark);
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    margin-top: 20px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Input Focus */
+.edit-company-profile-input:focus,
+.edit-company-profile-textarea:focus,
+.edit-company-profile-select:focus {
+    box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.15), inset -3px -3px 6px rgba(255, 255, 255, 0.7);
+}
+
+/* Textarea */
+.edit-company-profile-textarea {
+    min-height: 80px;
+    resize: none;
+}
+
+/* Profile Picture */
+.edit-company-profile-picture {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+}
+
+.edit-company-profile-picture,
+.edit-company-profile-cover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center; 
+}
+
+.edit-company-profile-logo {
+    width: 160px;
+    height: 160px;
+    border: 4px solid var(--hover-color);
+    object-fit: cover;
+    border-radius: 50%;
+    margin-top: 2rem;
+    margin-bottom: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.523);
+}
+
+/* File Input Styling */
+.edit-company-profile-upload-logo,
+.edit-company-profile-upload-cover {
+    margin-top: 10px; /* Space between image and input */
+    padding: 8px;
+    width: 50%;
+    border: 2px solid var(--button-color);
+    border-radius: 6px;
+    background: var(--background-color-dark);
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+/* Buttons */
+.edit-company-profile-update-btn,
+.edit-company-profile-save-btn {
+    width: 20%;
+    background: var(--button-color);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.2), -6px -6px 15px rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    margin-top: 15px;
+}
+
+.edit-company-profile-update-btn:hover,
+.edit-company-profile-save-btn:hover {
+    background: var(--hover-color);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.25), -3px -3px 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Key Information Grid */
+.company-profile-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+/* Key Info Cards */
+.company-profile-info-card {
+    background: var(--background-color-light);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px rgba(255, 255, 255, 0.7);
+}
+
+/* Social Media */
+.company-profile-social-media {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+.edit-company-profile-container {
+    width: 95%;
+    padding: 20px;
+}
+.company-profile-info-grid {
+    grid-template-columns: 1fr;
+}
+}
+
+/* settiins of company.............................................................................. */
+
+.company-settings-account {
+    max-width: 1400px;
+    margin: 1rem 1rem 0 280px;
+    padding: 20px;
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-out;
+}
+
+.account-settings-header {
+    text-align: center;
+    padding: 20px;
+    background: var(--primary-color);
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.account-settings-header h2 {
+    font-size: 28px;
+    color: var(--accent-color);
+}
+
+.company-settings-title {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.company-settings-section {
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    background-color: #f9f9f9;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.company-settings-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.company-settings-header-title {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.company-settings-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.company-settings-status img {
+    width: 20px;
+    height: 20px;
+}
+
+.company-settings-input-section {
+    margin-top: 20px;
+}
+
+.company-settings-input-section label {
+    display: block;
+    font-size: 1em;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.company-settings-input-section input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1em;
+    margin-bottom: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.company-settings-input-section input:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+}
+
+.company-settings-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.company-settings-save-btn,
+.company-settings-cancel-btn {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.company-settings-save-btn {
+    background-color: var(--button-color);
+    color: white;
+}
+
+.company-settings-save-btn:hover {
+    background-color: #005bb5;
+}
+
+.company-settings-cancel-btn {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.company-settings-cancel-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.company-settings-cancel-btn:active {
+    background-color: #ccc;
+}
+
+.company-settings-cancel-btn:focus,
+.company-settings-save-btn:focus {
+    outline: none;
+}
+
+/* -----------copany register---------------- */
+/* 
+.company-register-main-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--background-color-light), var(--background-color-dark));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: var(--text-color);
+}
+
+.company-register-container {
+    background: white;
+    padding: 0 50px 30px 50px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    padding-top: 1rem;
+    max-width: 600px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.company-register-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(110, 172, 218, 0.1) 0%, rgba(110, 172, 218, 0) 70%);
+    transform: rotate(45deg);
+    pointer-events: none;
+}
+.company-register-container h1{
+    font-size: 28px;
+    padding-bottom: 1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+.form h2 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.step-indicator {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.step-line {
+    position: absolute;
+    top: 15px;
+    left: 16%;
+    width: 65%;
+    height: 2px;
+    background: #e0e0e0;
+    z-index: 0;
+}
+
+.step-line::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: var(--secondary-color);
+    transition: width 0.5s ease;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+    color: var(--text-color-light);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.step.active .circle {
+    background: var(--secondary-color);
+    color: white;
+    transform: scale(1.2);
+    box-shadow: 0 6px 12px rgba(110, 172, 218, 0.3);
+}
+
+.step span {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-color-light);
+    transition: all 0.3s ease;
+}
+
+.step.active span {
+    color: var(--secondary-color);
+}
+
+.company-register-basic-detail {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-in-out;
+}
+
+.company-register-basic-detail h2{
+    font-size: 22px;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    color: var(--primary-color);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.company-register-basic-detail.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.company-register-basic-detail .input-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.company-register-basic-detail .input-wrapper {
+    flex: 1;
+}
+
+.company-register-basic-detail label {
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+
+.company-register-basic-detail input, textarea {
+    width: 100%;
+    padding: 20px 10px;
+    margin-bottom: 10px;
+    background: var(--background-color-light);
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    color: var(--text-color);
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.company-register-basic-detail input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 10px rgba(110, 172, 218, 0.2);
+}
+
+.company-register-basic-detail button {
+    background: var(--button-color);
+    color: white;
+    border: none;
+    padding: 18px 50px;
+    width: 70%;
+    margin-top: 30px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(3, 52, 110, 0.3);
+}
+
+.company-register-basic-detail button:hover {
+    background: var(--hover-color);
+    box-shadow: 0 7px 20px rgba(110, 172, 218, 0.4);
+    transform: translateY(-2px);
+}
+
+.company-register-basic-detail .password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.company-register-basic-detail .password-wrapper input {
+    width: 100%;
+    padding-right: 40px; 
+    margin-right: -1.2rem;
+}
+
+.company-register-basic-detail .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    color: var(--text-color-light);
+}
+
+.company-register-basic-detail .toggle-password:hover {
+    color: var(--secondary-color);
+}
+
+.company-register-basic-detail .login-link {
+    margin-top: 15px;
+    font-size: 14px;
+    color: var(--text-color-light);
+}
+
+.company-register-basic-detail .login-link a {
+    color: var(--button-color);
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.company-register-basic-detail .login-link a:hover {
+    color: var(--hover-color);
+    text-decoration: underline;
+}
+.company-register-basic-detail select {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    background: var(--background-color-light);
+    color: var(--text-color);
+    appearance: none; 
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.company-register-basic-detail .select-wrapper {
+    position: relative;
+}
+
+.company-register-basic-detail .select-wrapper::after {
+    content: '\f078'; 
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 15px;
+    top: 60%;
+    transform: translateY(-50%);
+    color: var(--text-color-light);
+    pointer-events: none;
+}
+
+.company-register-basic-detail select:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 10px rgba(110, 172, 218, 0.2);
+}
+
+.company-register-basic-detail select:hover {
+    border-color: var(--hover-color);
+}
+
+.company-register-basic-detail select option {
+    background: white;
+    color: var(--text-color);
+    padding: 10px;
+}
+
+.company-register-container.expanded {
+    max-width: 800px; 
+} */
+
+
+.com-register-html, .com-register-body {
+    height: 100%;
+    background-color: var(--background-color-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.company-register-page-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.company-register-container {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    box-shadow: var(--shadow-lg);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    position: relative;
+    margin: 20px;
+    height: 99%;
+    min-height: auto;
+}
+
+.company-register-login-branding {
+    flex: 1;
+    background: var(--primary-gradient);
+    padding: 40px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    min-height: 730px;
+}
+
+.company-register-brand-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,50 Q25,0 50,50 T100,50" stroke="rgba(255,255,255,0.1)" fill="none" stroke-width="2"/><path d="M0,70 Q25,20 50,70 T100,70" stroke="rgba(255,255,255,0.1)" fill="none" stroke-width="2"/><path d="M0,30 Q25,-20 50,30 T100,30" stroke="rgba(255,255,255,0.1)" fill="none" stroke-width="2"/></svg>');
+    opacity: 0.5;
+    background-size: 100px 100px;
+}
+
+.company-register-logo-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.company-register-logo {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+}
+
+.company-register-logo::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: var(--accent-color);
+    border-radius: var(--border-radius-full);
+}
+
+.company-register-brand-content {
+    position: relative;
+    z-index: 1;
+}
+
+.company-register-brand-content h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.company-register-brand-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.company-register-brand-features {
+    margin-top: 40px;
+}
+
+.company-register-feature-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.company-register-feature-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--border-radius-full);
+    background-color: rgba(110, 172, 218, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.company-register-feature-icon i {
+    color: var(--accent-color);
+    font-size: 18px;
+}
+
+.company-register-feature-text {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.company-register-login-form-container {
+    flex: 1;
+    background-color: white;
+    padding: 40px 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.company-register-login-form-header {
+    margin-bottom: 25px;
+}
+
+.company-register-login-form-header h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.company-register-login-form-header p {
+    color: var(--text-color-light);
+    font-size: 15px;
+}
+
+.company-register-form-step {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 1;
+    transform: translateX(0);
+    height: auto;
+}
+
+.company-register-form-step.company-register-hidden {
+    opacity: 0;
+    transform: translateX(20px);
+    position: absolute;
+    pointer-events: none;
+}
+
+.company-register-input-group {
+    margin-bottom: 18px;
+}
+
+.company-register-input-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: var(--text-color);
+    font-size: 15px;
+}
+
+.company-register-input-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.company-register-form-control {
+    width: 100%;
+    padding: 12px 14px 12px 42px;
+    background-color: var(--background-color-dark);
+    border: 1px solid #edf2f7;
+    border-radius: var(--border-radius-md);
+    font-size: 14px;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    height: 48px;
+    order: 1; 
+}
+
+.company-register-form-control:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(110, 172, 218, 0.1);
+    background-color: white;
+}
+
+.company-register-input-icon {
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    color: var(--text-color-light);
+    font-size: 15px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.company-register-toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 14px;
+    background: none;
+    border: none;
+    color: var(--text-color-light);
+    cursor: pointer;
+    font-size: 15px;
+    transition: color 0.3s;
+    z-index: 2;
+}
+
+.company-register-toggle-password:hover {
+    color: var(--text-color);
+}
+
+.company-register-login-btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary-gradient);
+    border: none;
+    border-radius: var(--border-radius-md);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    height: 48px;
+    margin-top: 10px;
+}
+
+.company-register-login-btn:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #03346E, #6EACDA);
+}
+
+.company-register-login-btn:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+
+.company-register-login-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    bottom: -50%;
+    left: -50%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0));
+    transform: rotate(45deg) translate(0, -100px);
+    animation: company-register-shine 3s infinite;
+}
+
+@keyframes company-register-shine {
+    0% {
+        transform: rotate(45deg) translate(0, -100px);
+    }
+    20%, 100% {
+        transform: rotate(45deg) translate(0, 350px);
+    }
+}
+
+.company-register-register-link {
+    text-align: center;
+    color: var(--text-color-light);
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.company-register-register-link a {
+    color: var(--button-color);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.company-register-register-link a:hover {
+    color: var(--hover-color);
+    text-decoration: underline;
+}
+
+.company-register-form-wrapper {
+    position: relative;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.company-register-progress-indicator {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.company-register-progress-step {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #e2e8f0;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+}
+
+.company-register-progress-step.company-register-active {
+    background-color: var(--button-color);
+    transform: scale(1.2);
+}
+
+.company-register-back-btn {
+    background: none;
+    border: none;
+    color: var(--secondary-color);
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin-bottom: 20px;
+    transition: color 0.3s;
+}
+
+.company-register-back-btn:hover {
+    color: var(--button-color);
+}
+
+.company-register-back-btn i {
+    margin-right: 5px;
+}
+
+.company-register-step-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.company-register-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.company-register-grid-full {
+    grid-column: 1 / -1;
+}
+
+.company-register-loading-indicator {
+    display: none;
+    margin-left: 10px;
+    animation: company-register-spin 1s linear infinite;
+}
+
+@keyframes company-register-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Adding height constraint to make sure the container is properly sized */
+#company-register-company-details, #company-register-basic-details {
+    max-height: 100%;
+}
+
+/* Making sure the container has appropriate height on mobile devices */
+@media (max-width: 991px) {
+    .company-register-container {
+        flex-direction: column;
+        max-width: 500px;
+        height: auto;
+        max-height: 90vh; /* Limit height on mobile */
+    }
+
+    .company-register-login-branding {
+        padding: 25px;
+    }
+
+    .company-register-login-form-container {
+        padding: 25px;
+    }
+
+    .company-register-brand-content h1 {
+        font-size: 24px;
+    }
+
+    .company-register-login-form-header h2 {
+        font-size: 22px;
+    }
+
+    .company-register-brand-features {
+        margin-top: 20px;
+    }
+
+    .company-register-form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .company-register-login-branding {
+        padding: 20px;
+    }
+
+    .company-register-login-form-container {
+        padding: 20px;
+    }
+
+    .company-register-brand-content h1 {
+        font-size: 22px;
+    }
+
+    .company-register-logo {
+        font-size: 20px;
+    }
+
+    .company-register-brand-content p {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+
+    .company-register-feature-item {
+        margin-bottom: 12px;
+    }
+
+    .company-register-feature-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .company-register-feature-text {
+        font-size: 13px;
+    }
+}
+/* -------company login------------- */
+
+.company-main-login-page, .company-login-html {
+    height: 100%;
+    background-color: var(--background-color-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.company-login-page-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.company-login-container {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    box-shadow: var(--company-login-shadow-lg);
+    border-radius: var(--company-login-border-radius-lg);
+    overflow: hidden;
+    position: relative;
+    margin: 20px;
+}
+
+.company-login-branding {
+    flex: 1;
+    background: var(--company-login-primary-gradient);
+    padding: 40px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    min-height: 600px;
+}
+
+.company-login-brand-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,50 Q25,0 50,50 T100,50" stroke="rgba(255,255,255,0.1)" fill="none" stroke-width="2"/><path d="M0,70 Q25,20 50,70 T100,70" stroke="rgba(255,255,255,0.1)" fill="none" stroke-width="2"/><path d="M0,30 Q25,-20 50,30 T100,30" stroke="rgba(255,255,255,0.1)" fill="none" stroke-width="2"/></svg>');
+    opacity: 0.5;
+    background-size: 100px 100px;
+}
+
+.company-login-logo-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.company-login-logo {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+}
+
+.company-login-logo::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: var(--accent-color);
+    border-radius: var(--company-login-border-radius-full);
+}
+
+.company-login-brand-content {
+    position: relative;
+    z-index: 1;
+}
+
+.company-login-brand-content h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.company-login-brand-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.company-login-brand-features {
+    margin-top: 40px;
+}
+
+.company-login-feature-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.company-login-feature-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--company-login-border-radius-full);
+    background-color: rgba(110, 172, 218, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.company-login-feature-icon i {
+    color: var(--accent-color);
+    font-size: 18px;
+}
+
+.company-login-feature-text {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.company-login-form-container {
+    flex: 1;
+    background-color: white;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.company-login-form-header {
+    margin-bottom: 30px;
+}
+
+.company-login-form-header h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.company-login-form-header p {
+    color: var(--text-color-light);
+    font-size: 16px;
+}
+
+.company-login-input-group {
+    margin-bottom: 20px;
+}
+
+.company-login-input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-color);
+    font-size: 16px;
+}
+
+.company-login-input-wrapper {
+    position: relative;
+}
+
+.company-login-form-control {
+    width: 100%;
+    padding: 14px 16px;
+    padding-left: 45px;
+    background-color: var(--background-color-dark);
+    border: 2px solid #edf2f7;
+    border-radius: var(--company-login-border-radius-md);
+    font-size: 15px;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.company-login-form-control:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(110, 172, 218, 0.1);
+    background-color: white;
+}
+
+.company-login-input-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-color-light);
+    font-size: 18px;
+}
+
+.company-login-forgot-password {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.company-login-forgot-password a {
+    color: var(--text-color-light);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    transition: color 0.3s;
+}
+
+.company-login-forgot-password a:hover {
+    color: var(--hover-color);
+}
+
+.company-login-toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-color-light);
+    cursor: pointer;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.company-login-toggle-password:hover {
+    color: var(--text-color);
+}
+
+.company-login-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.company-login-remember-me {
+    display: flex;
+    align-items: center;
+}
+
+.company-login-custom-checkbox {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--text-color-light);
+    user-select: none;
+}
+
+.company-login-custom-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.company-login-checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: var(--background-color-dark);
+    border: 2px solid #edf2f7;
+    border-radius: 5px;
+}
+
+.company-login-custom-checkbox:hover input ~ .company-login-checkmark {
+    background-color: #edf2f7;
+}
+
+.company-login-custom-checkbox input:checked ~ .company-login-checkmark {
+    background-color: var(--button-color);
+    border-color: var(--button-color);
+}
+
+.company-login-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.company-login-custom-checkbox input:checked ~ .company-login-checkmark:after {
+    display: block;
+}
+
+.company-login-custom-checkbox .company-login-checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.company-login-btn {
+    width: 100%;
+    padding: 14px;
+    background: var(--company-login-primary-gradient);
+    border: none;
+    border-radius: var(--company-login-border-radius-md);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--company-login-shadow-md);
+}
+
+.company-login-btn:hover {
+    box-shadow: var(--company-login-shadow-glow);
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #03346E, #6EACDA);
+}
+
+.company-login-btn:active {
+    transform: translateY(0);
+    box-shadow: var(--company-login-shadow-sm);
+}
+
+.company-login-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    bottom: -50%;
+    left: -50%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0));
+    transform: rotate(45deg) translate(0, -100px);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        transform: rotate(45deg) translate(0, -100px);
+    }
+    20%, 100% {
+        transform: rotate(45deg) translate(0, 350px);
+    }
+}
+
+.company-login-divider {
+    display: flex;
+    align-items: center;
+    margin: 25px 0;
+    color: var(--text-color-light);
+}
+
+.company-login-divider::before,
+.company-login-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: #edf2f7;
+}
+
+.company-login-divider span {
+    padding: 0 15px;
+    font-size: 14px;
+}
+
+.company-login-social-login {
+    gap: 15px;
+}
+.company-login-social-login p{
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+.company-login-social-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: white;
+    border: 2px solid var(--button-color);
+    border-radius: var(--company-login-border-radius-md);
+    color: var(--button-color);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.company-login-social-btn:hover {
+    background-color: var(--background-color-dark);
+    border-color: var(--button-color);
+    transform: translateY(-2px);
+}
+
+.company-login-social-btn:active {
+    transform: translateY(0);
+}
+
+.company-login-register-link {
+    text-align: center;
+    color: var(--text-color-light);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.company-login-register-link a {
+    color: var(--button-color);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: 700;
+
+}
+
+.company-login-register-link a:hover {
+    color: var(--hover-color);
+    text-decoration: underline;
+}
+
+.company-login-form-feedback {
+    display: none;
+    font-size: 14px;
+    margin-top: 5px;
+    color: #e53e3e;
+}
+
+.company-login-form-control.error {
+    border-color: #e53e3e;
+}
+
+.company-login-form-control.success {
+    border-color: #38a169;
+}
+
+.company-login-loading-indicator {
+    display: none;
+    margin-left: 10px;
+    animation: spin 1s linear infinite;
+}
+.error-border {
+    border-color: #e53e3e !important;
+}
+
+.error-message {
+    font-size: 0.875rem;
+    margin-top: 4px;
+    order: 2;
+    color: #e53e3e;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 991px) {
+    .company-login-container {
+        flex-direction: column;
+        max-width: 500px;
+    }
+
+    .company-login-branding {
+        padding: 30px;
+        min-height: auto;
+    }
+
+    .company-login-form-container {
+        padding: 30px;
+    }
+
+    .company-login-brand-content h1 {
+        font-size: 28px;
+    }
+
+    .company-login-form-header h2 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 576px) {
+    .company-login-form-container {
+        padding: 25px 20px;
+    }
+
+    .company-login-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .company-login-social-login {
+        flex-direction: column;
+    }
+
+    .company-login-brand-features {
+        display: none;
+    }
+}
+/* 
+.company-login-main-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--background-color-light), var(--background-color-dark));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: var(--text-color);
+}
+
+.company-login-login-section {
+    width: 90%;
+    max-width: 600px;    
+    background: white;
+    padding: 0 50px 30px 50px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+.company-login-login-section h1 {
+    font-size: 28ox;
+    font-weight: 700;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    text-align: center;
+    color: var(--primary-color);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.company-login-input-group {
+    margin-bottom: 20px;
+}
+
+.company-login-input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.company-login-input-wrapper {
+    position: relative;
+}
+
+.company-login-input-wrapper input {
+    width: 95%;
+    padding: 20px 10px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+.company-login-input-wrapper input:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+}
+
+.company-login-input-wrapper .show-password {
+    position: absolute;
+    right: 35px;
+    top: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    color: var(--text-color-light);
+    background: transparent;
+    border: none; 
+}
+
+.company-login-input-wrapper .show-password:hover {
+    color: var(--secondary-color);
+}
+
+
+.company-login-login-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.company-login-remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.company-login-forgot-password {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 0.9em;
+    margin-right: 0.7rem;
+}
+.company-login-login-btn {
+    background: var(--button-color);
+    color: white;
+    border: none;
+    padding: 18px 50px;
+    width: 70%;
+    margin: 30px auto; 
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(3, 52, 110, 0.3);
+    display: block; 
+    text-align: center;
+}
+
+.company-login-login-btn:hover {
+    background: var(--hover-color);
+    transform: translateY(-2px);
+}
+
+.company-login-alternate-login {
+    text-align: center;
+}
+
+.company-login-alternate-login p {
+    color: var(--text-color-light);
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.company-login-alternate-login p::before,
+.company-login-alternate-login p::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    height: 1px;
+    background: #eee;
+}
+
+.company-login-alternate-login p::before { left: 0; }
+.company-login-alternate-login p::after { right: 0; }
+
+.company-login-social-login {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.company-login-social-btn {
+    padding: 12px 20px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background: white;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 170px; 
+    height: 45px; 
+}
+
+.company-login-social-btn img {
+    width: 5vh; 
+    height: 5vh;
+}
+
+
+.company-login-social-btn:hover {
+    background: var(--background-color-light);
+}
+
+.company-register-link{
+    text-align: center;
+    margin-top:20px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.company-login-register-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--button-color);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.company-login-register-link:hover {
+    color: var(--hover-color);
+    text-decoration: underline;
+} */
+
+
+/* pagination css */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    position: relative;
+    padding: 20px;
+}
+
+.pagination-nav {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.pagination-link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--primary-color);
+    background: #fff;
+    /* background: linear-gradient(135deg, #f0f0f0, #e6e6e6); */
+    border: 1px solid #dcdcdc;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.pagination-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--hover-color), var(--button-color));
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease;
+    border-radius: 12px;
+}
+
+.pagination-link:hover {
+    color: #ffffff;
+}
+.pagination-link:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.pagination-link.active {
+    color: #ffffff;
+    background: linear-gradient(135deg, #28a745, #218838);
+    box-shadow: 0 6px 8px rgba(40, 167, 69, 0.3);
+    border: none;
+    cursor: default;
+}
+
+.pagination-link.disabled {
+    background: #f0f0f0;
+    color: #a6a6a6;
+    border: 1px solid #e0e0e0;
+    cursor: not-allowed;
+    pointer-events: none;
+    box-shadow: none;
+}
+
+.pagination-link.dots {
+    background: transparent;
+    color: #4a4a4a;
+    border: none;
+    cursor: default;
+}
+
+.pagination-link:first-child,
+.pagination-link:last-child {
+    width: 100px;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.pagination-link:first-child::before,
+.pagination-link:last-child::before {
+    background: linear-gradient(135deg, #6c757d, #495057);
+}
+
+.pagination-link:first-child:hover::before,
+.pagination-link:last-child:hover::before {
+    background: linear-gradient(135deg, #343a40, #212529);
+}
+
+.pagination-nav::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #ccc, transparent, #ccc);
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+}
+
+
+
+/* ------------------------------company job details page------------------ */
+
+.job-detail-main-container {
+    padding: 30px 20px 30px 0;
+    margin-left: 280px;
+    border-radius: 12px;
+    max-width: 1400px;
+    transition: all 0.3s ease-in-out;
+    }
+    
+    /* Header Section */
+    .job-detail-main-container-header {
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: var(--primary-color);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--accent-color);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    
+    }
+    
+    .job-detail-main-container-header h1 {
+    font-size: 28px;
+    color: var(--accent-color);
+    margin: 0;
+    font-weight: bold;
+    }
+    
+
+.job-details-container {
+    max-width: 1400px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.job-details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e6e9ef;
+}
+
+.job-details-header h1 {
+    font-size: 32px;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    font-weight: 700;
+    transition: 0.3s ease-in-out;
+}
+.job-details-header h1:hover{
+    color: var(--primary-color);
+}
+.job-details-meta {
+    font-size: 16px;
+    color: var(--text-color-light);
+    font-weight: 500;
+}
+
+.job-details-header .like-form .like-button, .like-button {
+    background: #e6e9ef;
+    border: none;
+    border-radius: 50%;
+    padding: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.job-details-header .like-form .like-button.saved {
+    background: var(--primary-color );
+}
+
+.job-details-header .like-form .like-button i, .like-button i {
+    color: var(--secondary-color);
+    font-size: 22px;
+    margin-right: 0;
+}
+
+.job-details-header .like-form .like-button:hover, .like-button:hover {
+    background: var(--primary-color );
+}
+
+
+.job-details-summary-container,
+.job-details-company {
+    display: inline-block;
+    width: 48%; 
+    margin: 1rem 1%;
+    background-color: var(--background-color-dark);
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    padding: 25px;
+    vertical-align: top;
+    height: 100%; 
+}
+
+.job-details-summary-container h3,
+.job-details-company h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.job-details-summary-container ul,
+.job-details-company ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.job-details-summary-container ul li,
+.job-details-company ul li {
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color-light);
+}
+
+.job-details-section {
+    margin: 30px 0;
+}
+
+.job-details-section h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.job-details-section p,
+.job-details-section ul {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.8;
+    color: var(--text-color-light);
+}
+
+.job-details-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.job-details-section ul li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.job-details-section ul li i {
+    margin-right: 10px;
+    color: var(--secondary-color);
+}
+
+.job-details-actions, .after-logged-in {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+.job-details-actions button{
+    background-color: var(--button-color);
+    color: #fff;
+    padding: 12px 32px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.job-details-actions button.job-details-save-button {
+    background-color: #6b7280;
+}
+
+.job-details-actions button:hover {
+    transform: translateY(-2px);
+    background-color: var(--primary-color);
+}
+
+.job-details-actions button.job-details-save-button:hover {
+    background-color: #525964;
+}
+
+
+/* view applicants user profile */
+
+.premium-user-profile-container {
+    max-width: 1400px;
+    margin:2rem 2rem 2rem 280px;
+    padding: 30px;
+    background: var(--background-color-light);
+    border-radius: 25px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-out;
+}
+
+/* Profile Header */
+.premium-user-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.premium-header-left-section {
+    display: flex;
+    align-items: center;
+}
+
+.premium-profile-image-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #fff;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.premium-profile-image-container:hover {
+    transform: scale(1.1);
+}
+
+.premium-profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.premium-profile-info-data {
+    margin-left: 20px;
+}
+.premium-profile-info-container {
+    margin-top: 25px
+}
+.premium-user-fullname {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.premium-user-title {
+    font-size: 20px;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+/* Info Cards */
+.premium-info-card {
+    padding: 25px;
+    background: var(--background-color-dark);
+    /* border-radius: 20px; */
+    margin-bottom: 25px;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.08);
+    animation: fadeIn 1s ease-out;
+}
+
+/* Data Card Titles */
+.premium-data-card-title {
+    font-size: 25px;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+/* Profile and Education Info List */
+.premium-user-details-list li,
+.premium-education-details-list li,
+.premium-skills-details-list li {
+    font-size: 16px;
+    font-weight: 500;   
+    margin-bottom: 12px;
+    color: var(--text-color-light);
+    transition: color 0.3s ease;
+}
+
+.premium-user-details-list li:hover,
+.premium-education-details-list li:hover,
+.premium-skills-details-list li:hover {
+    color: var(--secondary-color);
+}
+
+/* Resume Section */
+.premium-resume-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-color-light);
+    margin-bottom: 20px;
+}
+.premium-display-resume{
+    font-size: 18   px;
+    font-weight: 500;
+}
+.premium-display-resume:hover{    
+    color: var(--secondary-color);
+}
+.premium-resume-actions {
+    display: flex;
+    gap: 20px;
+}
+
+/* Resume Buttons */
+.premium-resume-button {
+    padding: 12px 25px;
+    background: linear-gradient(135deg, var(--primary-color), var(--button-color));
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.premium-resume-button:hover {
+    transform: translateY(-5px);
+}
+
+/* Location Section */
+.premium-location-text {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color-light);
+}
+
+.premium-location-text span {
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.breadcrumb {
+    padding: 0 0 1rem 0;
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--button-color);
+    transition: transform 0.3s ease-in-out;
+}
+
+.breadcrumb a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.breadcrumb a:hover {
+    color: var(--primary-color);
+}
+.breadcrumb .breadcrumb-arrow {
+    color: var(--button-color);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    transition: color 0.3s ease;
+}
+.breadcrumb .breadcrumb-arrow:hover {
+    color: #374151;
+}
+
+/* company edit profile CSS.......................................................................................................... */
+
+.company-profile-container {
+    max-width: 1400px;
+    /* margin: 7rem auto 3rem auto; */
+    margin: 1rem 1rem 2rem 280px;
+    padding: 2rem;
+    background: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    animation: fadeIn 1s ease-out;
+}
+.company-profile-content {
+    margin-top: 2rem;
+}
+
+.company-cover-image {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+.company-cover-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(1px) brightness(70%);
+}
+
+.default-cover {
+    width: 100%;
+    height: 100%;
+    background-color: #1a1a1ab0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.default-cover span {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+/* Header Section */
+.company-profile-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+    animation: fadeIn 1s ease-out;
+}
+
+.company-profile-header img {
+    width: 150px;
+    height: 150px;
+    margin:-120px 0 0 12px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--hover-color);
+}
+
+.company-profile-header-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.company-profile-header h1 {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    font-weight: 800;
+}
+
+.follow-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Follow Button Styling */
+
+.follow-btn {
+    padding: 0.8rem 2rem;
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    right: 20px; 
+    top: 50%;  
+    transform: translateY(-50%); 
+    transition:  0.3s ease-in-out;
+}
+
+.follower-count{
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-color);
+}
+.follow-btn:hover {
+    background: var(--primary-color);
+}
+.edit-profile-btn {
+    padding: 0.6rem 2.2rem;
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.3s ease-in-out;
+    text-decoration: none; /* Add this to remove underline from link */
+    display: inline-block; /* Add this to make the link behave like a button */
+}
+
+.edit-profile-btn:hover {
+    background: var(--primary-color);
+}
+
+/* Overview Content */
+
+.company-profile-details h2 {
+    font-size: 1.5rem;
+    margin: 2rem 0 2rem;
+    font-weight: 800;
+    color: var(--text-color);
+    border-left: 4px solid var(--text-color);
+    padding-left: 0.5rem;
+}
+
+.company-profile-details p {
+    font-size: 1rem;
+    line-height: 1.6;
+    font-weight: 600;
+    color: var(--text-color-light);
+}
+
+/* Key Information */
+.company-profile-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.company-profile-info-card {
+    background: var(--background-color-dark);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.company-profile-info-card:hover {
+    transform: translateY(-5px);
+}
+
+.company-profile-info-card h3 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.company-profile-info-card p {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+/* Contact Information */
+.company-profile-details a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.company-profile-details a:hover {
+    text-decoration: underline;
+}
+
+/* Social Media Links */
+.company-profile-social-media {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: left;
+    gap: 1rem;
+}
+
+.company-profile-social-media a, .social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
+
+.company-profile-social-media a:hover {
+    background: var(--hover-color);
+    text-decoration: none;
+}
+
+.company-profile-social-media .fa {
+    text-decoration: none;
+}
+
+/* Job Listing Section */
+.company-profile-jobs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+    padding: 1rem;
+    width: 100%;
+}
+
+
+.company-profile-jobs {
+    display: grid;
+    gap: 2rem;
+    margin-top: 2rem;
+    padding: 1rem;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.company-job-card:hover {
+    transform: translateY(-5px);
+}
+
+.company-job-card h3 {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.company-job-card p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.company-job-apply-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: var(--primary-color);
+    color: #ffffff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.company-job-apply-btn:hover {
+    background: var(--hover-color);
+}
+
+/* Job Listing Section */
+.company-profile-jobs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+/* Individual Job Card */
+.company-job-card {
+    background: linear-gradient(135deg, #ffffff, #f7f7f7);
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    position: relative;
+    
+}
+
+.company-job-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    
+}
+
+/* Job Title with Icon */
+.company-job-card h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #f0f4ff;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+
+/* Job Details with Icon */
+.company-job-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+}
+
+/* Icons Styling */
+.company-job-card i {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+/* Job Apply Button */
+.company-job-apply-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.7rem 1.5rem;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: #ffffff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.company-job-apply-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #003f87);
+    transform: scale(1.05);
+}
+
+/* Icon Backgrounds for Visual Enhancement */
+.company-job-card:before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 100px;
+    height: 100px;
+    background: rgba(0, 123, 255, 0.1);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.company-job-card:after {
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    left: -40px;
+    width: 80px;
+    height: 80px;
+    background: rgba(0, 123, 255, 0.1);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.company-job-card * {
+    position: relative;
+    z-index: 1;
+}
+.company-type-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.company-type {
+    font-size: 14px;
+    font-weight: bold;
+    color:var(--text-color-light);
+    margin-top: 4px;
+    padding: 2px 10px;
+    border-radius: 50px;
+    border: 1px solid var(--primary-color);
+}
+
+/* Tab Navigation */
+.tab-navigation {
+    display: flex;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 20px;
+}
+.tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1.2rem;
+    position: relative;
+}
+.tab:hover {
+    color: #007bff;
+}
+.active-tab {
+    color: #007bff;
+    font-weight: bold;
+}
+.tab:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: transparent;
+    transition: all 0.3s ease-in-out;
+}
+.active-tab:after {
+    background-color: #007bff;
+}
+.tab-content {
+    display: none;
+    padding-top: 20px;
+}
+.tab-content h2{
+    font-size: 1.5rem;
+    margin: 2rem 0 2rem;
+    font-weight: 800;
+    color: var(--text-color);
+    border-left: 4px solid var(--text-color);
+    padding-left: 0.5rem;
+}
+.tab-content.active {
+    display: block;
+}
+
+.company-detail-header-stars {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin: 10px 0;
+}
+.company-detail-header-star {
+    font-size: 30px;
+    cursor: pointer;
+    color: #ccc;
+    transition: color 0.3s;
+}
+.company-detail-header-star:hover,
+.company-detail-header-star.active {
+    color: gold;
+}
+
+
+/* Star Rating */
+.company-details-rating-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #141e30, #243b55);
+    font-family: Arial, sans-serif;
+    flex-direction: column; /* Center content vertically and horizontally */
+    padding: 20px; /* Added some padding for better spacing */
+}
+
+.company-details-rating-container {
+    max-width: 1400px;
+    margin: -20px auto 3rem auto;
+    padding: 2rem;
+    background: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    height: 40%;
+    overflow: hidden;   
+}
+.company-details-rating-container h2{
+    font-weight: 800;
+    font-size: 1.6rem;
+    color: var(--text-color);
+}
+
+.company-detail-stars {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin: 10px 0;
+}
+.company-detail-star {
+    font-size: 35px;
+    cursor: pointer;
+    color: #ccc;
+    transition: color 0.3s;
+}
+.company-detail-star:hover,
+.company-detail-star.active {
+    color: gold;
+}
+.rating-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+.comment-box {
+    width: 100%;
+    height: 80px;
+    margin-top: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    font-size: 14px;
+}
+.company-rating-submit-btn {
+    margin-top: 30px;
+    padding: 12px 30px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    font-weight: 600;
+    font-size: 17px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+.company-rating-submit-btn:hover {
+    background: var(--secondary-color);
+}
+
+/* for error */
+.is-invalid {
+    border: 1px solid red;
+}
+
+.invalid-feedback {
+    color: red;
+    font-size: 0.9em;
+}
+
+
+/* company header section.............................................................................................................. */
+
+/* .company-profile-sidebar-logo {
+    display: block;
+    margin: 0 0 20px;
+    padding: 10px;
+    margin-left: -15px;
+    border-radius: 10px; 
+} */
+
+
+.company-header-part-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 20px;
+    background: var(--background-color-light);
+    color: var(--hover-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 0 0 16rem;
+}
+
+.company-header-part-left {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    animation: pulse 1s ease-out;
+}
+.company-header-part-left h2{
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+.company-header-part-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+}
+
+.company-header-part-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.company-header-part-icon-btn {
+    color: var(--hover-color);
+    font-size: 20px;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+}
+
+.company-header-part-icon-btn:hover {
+    color: #6EACDA;
+}
+
+.company-header-part-logout-btn {
+    background: #03346E;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease-in-out;
+}
+
+.company-header-part-logout-btn:hover {
+    background: #6EACDA;
+}
+/* Profile Dropdown */
+.profile-dropdown {
+    position: relative;
+}
+
+.profile-btn {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    gap: 8px;
+}
+
+/* Notification Icon */
+.notification-wrapper {
+    position: relative;
+    margin: 5px 5px 0 0;
+}
+
+.notification-btn {
+    font-size: 1.4rem;
+    color: var(--secondary-color);
+    position: relative;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.notification-badge {
+    position: absolute;
+    top: -7px;
+    right: -8px;
+    background: red;
+    color: white;
+    font-size: 12px;
+    padding: 1px 7px;
+    border-radius: 50%;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 150px;
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.dropdown-menu.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    list-style: none;
+}
+
+.dropdown-menu a {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    gap: 8px;
+}
+
+.dropdown-menu a:hover {
+    background: #f5f5f5;
+}
+
+.logout-btn {
+    color: red;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+}
+
+/* Scale animations */
+@keyframes scaleIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Slide animations */
+@keyframes slideInRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Rotate animations */
+@keyframes rotate360 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes swing {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(15deg);
+    }
+    75% {
+        transform: rotate(-15deg);
+    }
+}
+
+/* Bounce animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Shake animation */
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    75% {
+        transform: translateX(10px);
+    }
+}
