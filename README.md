@@ -1,4 +1,4 @@
-# JobHirence – Online Job Portal System
+# 🎯 JobHirence – Online Job Portal System
 
 **JobHirence** is a modern, feature-rich recruitment platform built using **PHP (Laravel Framework)** and **MySQL**. It streamlines the entire hiring process by providing tools for job seekers, recruiters, and administrators—all in one secure web application.
 
@@ -6,11 +6,11 @@
 
 ## 🌐 Project Overview
 
-**JobHirence** is a user-friendly online job portal system developed after analyzing multiple job sites to address common challenges in recruitment platforms. The key goal of this project is to streamline the hiring process for both job seekers and employers—making it more efficient, flexible, and accessible.
+**JobHirence** is a user-friendly online job portal developed after analyzing multiple job sites to address common recruitment challenges. The goal is to make hiring more **efficient**, **flexible**, and **accessible** for both job seekers and employers.
 
-One of the standout features of JobHirence is the dual-role functionality, where a user can apply for jobs as a candidate and also act as an employer to post and manage their own job listings. This empowers users to hire candidates, manage applications, and build a network—all from a single account.
+A standout feature is the **dual-role functionality**, allowing users to apply for jobs as candidates and also act as employers to post and manage their own listings. This empowers users to hire, manage applications, and grow their network—all from a single account.
 
-Built with PHP, Laravel, and MySQL, it features real-time tracking, social login, password recovery, and role-based panels for users, companies, and admins—reducing manual work and improving efficiency in hiring workflows.
+Built with Laravel (PHP) and MySQL, JobHirence includes real-time tracking, social login, password recovery, and role-based panels for users, companies, and admins—reducing manual work and streamlining workflows.
 
 ---
 
@@ -20,51 +20,51 @@ Built with PHP, Laravel, and MySQL, it features real-time tracking, social login
   Search jobs by title, location, company, or category with smart filtering.
 
 - 👤 **User Dual Role (Job Seeker + Employer)**  
-  A single user account can apply for jobs *and* post/manage their own job listings.
+  A single account can apply for jobs *and* post/manage listings.
 
 - 📝 **Job Application Management**  
-  Track job applications in real-time, view status updates, and receive notifications.
+  Track applications in real-time, view status updates, and receive notifications.
 
 - 🏢 **Company Registration & Management**  
-  Dedicated panel for companies to register, manage profiles, post jobs, and view applicants.
+  Companies can register, manage profiles, post jobs, and view applicants.
 
 - ➕ **Job Posting System**  
-  Create, edit, and remove job listings with detailed requirements and descriptions.
+  Create, edit, and remove job listings with detailed requirements.
 
 - 📁 **Resume Upload & Profile Builder**  
-  Upload resumes, build profiles, and showcase skills to attract recruiters.
+  Upload resumes, build profiles, and showcase skills to recruiters.
 
 - 📅 **Application History**  
-  View full history of jobs applied to and posted, along with status tracking.
+  View full history of jobs applied to and posted with status tracking.
 
 - 🧑‍💼 **Admin Control Panel**  
-  Manage users, companies, job posts, and recruitment criteria with complete oversight.
+  Manage users, companies, job posts, and recruitment criteria.
 
 - 🔐 **Authentication & Security**  
-  Social login with Google and GitHub, password recovery, and session protection.
+  Social login (Google, GitHub), password recovery, and session protection.
 
 - 📊 **Dashboard Analytics**  
-  View key stats like total jobs, users, applications, and performance metrics.
+  Stats on jobs, users, applications, and platform performance.
 
 - 📌 **Job Bookmarking**  
-  Users can save jobs to revisit and apply later.
+  Save interesting jobs to revisit or apply later.
 
 - 🧠 **Smart Notifications**  
-  Real-time updates on gives in email like user applying jobs confirmation or cancellation and Forgot password OTP.
+  Real-time email alerts for job actions (applied, cancelled) and password reset OTPs.
 
 ---
 
 ## 🛠️ Technologies Used
 
-| Technology     | Description                                |
-|----------------|--------------------------------------------|
-| PHP            | Backend scripting language for web logic   |
-| Laravel        | PHP framework for building web applications |
-| MySQL          | Relational database for data storage        |
-| HTML5 / CSS3   | Structuring and styling the user interface  |
-| JavaScript     | Client-side scripting for interactivity     |
-| Blade Templating | Laravel's dynamic HTML rendering engine    |
-| OAuth (Google & GitHub) | Secure social login integration    |
+| Technology           | Description                                 |
+|----------------------|---------------------------------------------|
+| PHP                  | Backend scripting language                  |
+| Laravel              | PHP framework for building applications     |
+| MySQL                | Relational database system                  |
+| HTML5 / CSS3         | Structuring and styling the UI              |
+| JavaScript           | Client-side scripting for interactivity     |
+| Blade Templating     | Laravel's HTML rendering engine             |
+| OAuth (Google/GitHub)| Secure social login integration             |
 
 ---
 
@@ -107,7 +107,7 @@ Built with PHP, Laravel, and MySQL, it features real-time tracking, social login
 ![User Post Job](screenshots/user-postJob.png)
 
 #### 📄 Posted Job Listings  
-![Job Listings](screenshots/userPostJobListning.png)
+![Job Listings](screenshots/userPostJobListing.png)
 
 #### 📝 Feedback Submission  
 ![User Feedback](screenshots/user-feedback.png)
@@ -140,5 +140,3 @@ Built with PHP, Laravel, and MySQL, it features real-time tracking, social login
 
 #### 🎯 Manage Job Criteria  
 ![Manage Criteria](screenshots/admin-jobCriteria.png)
-
----
